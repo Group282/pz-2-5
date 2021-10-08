@@ -6,6 +6,8 @@
 *  As user I want to have possibility to change different color shema for the calculator
 *  Implement buttons for save and paste current result
 
+<img src="https://user-images.githubusercontent.com/10829855/136567622-98673662-2cd5-4c89-b0fc-1abe7e733c59.jpg"  width="400"/>
+
 # Useful links
 * [учебник по JavaScript](https://learn.javascript.ru/).
 * [Изменение документа](https://learn.javascript.ru/modifying-document).
