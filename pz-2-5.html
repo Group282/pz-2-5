@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+  <title>Calculator</title>
+  <link type="text/css" rel="stylesheet" href="css/pz-2-5.css">
+  <link type="text/css" rel="stylesheet" href="css/media-query.css">
+</head>
+<body>
+<div class="virsta-calculator">
+  <div class="virsta-input-text1">
+    <input type="text" readonly id="virsta-input-text" class="virsta-input-text">
+  </div>
+
+  <div class="virsta-button-help1">
+    <input type="button" class="virsta-button-help" value="AC" id="virsta-button-help-AC">
+    <input type="button" class="virsta-button-help" value="+/-" id="virsta-button-help-minus">
+    <input type="button" class="virsta-button-help" value="%" id="virsta-button-help-interest">
+  </div>
+
+  <div class="virsta-button-operations1">
+    <input type="button" class="virsta-button-operations virsta-button" value="/"
+           id="virsta-button-operations-division">
+    <input type="button" class="virsta-button-operations virsta-button" value="*"
+           id="virsta-button-operations-multiplication">
+    <input type="button" class="virsta-button-operations virsta-button" value="+" id="virsta-button-operations-sum">
+    <input type="button" class="virsta-button-operations virsta-button" value="-"
+           id="virsta-button-operations-subtraction">
+    <input type="button" class="virsta-button-operations" value="=" id="virsta-button-operations-equal">
+  </div>
+
+  <div class="virsta-button-number1">
+    <div class="virsta-button-number2">
+      <input type="button" class="virsta-button-number virsta-button" value="9" id="virsta-button-number-nine">
+      <input type="button" class="virsta-button-number virsta-button" value="8" id="virsta-button-number-eight">
+      <input type="button" class="virsta-button-number virsta-button" value="7" id="virsta-button-number-seven">
+    </div>
+    <div class="virsta-button-number2">
+      <input type="button" class="virsta-button-number virsta-button" value="6" id="virsta-button-number-six">
+      <input type="button" class="virsta-button-number virsta-button" value="5" id="virsta-button-number-five">
+      <input type="button" class="virsta-button-number virsta-button" value="4" id="virsta-button-number-four">
+    </div>
+    <div class="virsta-button-number2">
+      <input type="button" class="virsta-button-number virsta-button" value="3" id="virsta-button-number-tree">
+      <input type="button" class="virsta-button-number virsta-button" value="2" id="virsta-button-number-two">
+      <input type="button" class="virsta-button-number virsta-button" value="1" id="virsta-button-number-one">
+    </div>
+    <div class="virsta-button-number2">
+      <input type="button" class="virsta-button-number virsta-button" value="0" id="virsta-button-number-zero">
+      <input type="button" class="virsta-button-number virsta-button" value="." id="virsta-button-number-point">
+    </div>
+  </div>
+
+  <div class="virsta-button-save1">
+    <input type="button" class="virsta-button-save" id="virsta-button-save" value="#">
+    <input type="button" class="virsta-button-save" id="virsta-button-output" value=">">
+  </div>
+</div>
+
+<script>
+  let buttons = document.querySelectorAll(".virsta-button");
+  let text = document.querySelector("#virsta-input-text");
+  let AC = document.querySelector("#virsta-button-help-AC");
+  let minus = document.querySelector("#virsta-button-help-minus");
+  let interest = document.querySelector("#virsta-button-help-interest");
+  let equal = document.querySelector("#virsta-button-operations-equal");
+  let save = document.querySelector('#virsta-button-save');
+  let output = document.querySelector('#virsta-button-output');
+
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", (e) => {
+      text.value += " " + buttons[i].value;
+      console.log(equal);
+    });
+  }
+
+  equal.addEventListener("click", (e) => {
+    Equal(e, false);
+  });
+
+  AC.addEventListener("click", (even) => {
+    text.value = '';
+  });
+
+  minus.addEventListener("click", (even) => {
+    Equal(even, false);
+    if (parseFloat(text.value)) text.value = parseFloat(text.value) * (-1);
+  });
+
+  interest.addEventListener("click", (even) => {
+    Equal(even, true);
+  });
+
+  save.addEventListener("click", (even) => {
+    document.cookie = `user=${text.value}; path=/file:///D:/my/paru/WEB/pz-2-5; domain=file:///D:/my/paru/WEB/pz-2-5/pz-2-5.html; expires=Tue`;
+  });
+
+  output.addEventListener("click", (even) => {
+    alert(document.cookie);
+    text.value = document.cookie;
+  });
+
+  function Equal(event, inter) {
+    let str = text.value.trim();
+    str = text.value.split(' ');
+    if (!parseFloat(str[0])) str = str.filter((x) => str.indexOf(x) !== 0);
+    console.log(str);
+    let operation_bool = false;
+    let operation_list = [];
+    let operation_index = -1;
+    let rez = 0;
+
+    if (str.length === 0) text.value = "null";
+    else {
+      str.forEach((x) => {
+        switch (x) {
+          case '+':
+            operation_bool = true;
+            operation_list[operation_list.length] = x;
+            operation_index = str.indexOf(x);
+            break;
+          case '-':
+            operation_bool = true;
+            operation_list[operation_list.length] = x;
+            operation_index = str.indexOf(x);
+            break;
+          case '*':
+            operation_bool = true;
+            operation_list[operation_list.length] = x;
+            operation_index = str.indexOf(x);
+            break;
+          case '/':
+            operation_bool = true;
+            operation_list[operation_list.length] = x;
+            operation_index = str.indexOf(x);
+            break;
+          default:
+            break;
+        }
+      });
+      if (operation_bool) {
+        if (operation_list.length === 1 && operation_index !== -1) {
+          let count = 0;
+          let a = 0;
+          let b = 0;
+          if (inter) {
+            switch (operation_list[0]) {
+              case '+':
+                a = Number(str.filter((x) => count++ < operation_index));
+                count = 0;
+                b = Number(str.filter((x) => count++ > operation_index));
+                rez = a + a * b / 100;
+                break;
+              case '-':
+                a = Number(str.filter((x) => count++ < operation_index));
+                count = 0;
+                b = Number(str.filter((x) => count++ > operation_index));
+                rez = a - a * b / 100;
+                break;
+              case '*':
+                a = Number(str.filter((x) => count++ < operation_index));
+                count = 0;
+                b = Number(str.filter((x) => count++ > operation_index));
+                rez = a * b / 100;
+                break;
+              default:
+                text.value = "null";
+                break;
+            }
+          } else {
+            switch (operation_list[0]) {
+              case '+':
+                a = Number(str.filter((x) => count++ < operation_index));
+                count = 0;
+                b = Number(str.filter((x) => count++ > operation_index));
+                rez = a + b;
+                break;
+              case '-':
+                a = Number(str.filter((x) => count++ < operation_index));
+                count = 0;
+                b = Number(str.filter((x) => count++ > operation_index));
+                rez = a - b;
+                break;
+              case '*':
+                a = Number(str.filter((x) => count++ < operation_index));
+                count = 0;
+                b = Number(str.filter((x) => count++ > operation_index));
+                rez = a * b;
+                break;
+              case '/':
+                a = Number(str.filter((x) => count++ < operation_index));
+                count = 0;
+                b = Number(str.filter((x) => count++ > operation_index));
+                rez = a / b;
+                break;
+              default:
+                text.value = "null";
+                break;
+            }
+          }
+          count = 0;
+          text.value = rez;
+        } else {
+          text.value = "null";
+        }
+      } else {
+        text.value = Number(str);
+      }
+    }
+  }
+
+  /**
+   * @return {number}
+   */
+  function Number(arr) {
+    let rez = 0;
+    let point = arr.filter((x) => x === '.');
+
+    if (point.length === 1) {
+      let index = arr.indexOf('.');
+      for (let i = 0; i < index; i++) {
+        rez += parseInt(arr[i]);
+        if (i !== index - 1) {
+          rez *= 10;
+        }
+      }
+      let n = 10;
+      for (let i = index + 1; i < arr.length; i++) {
+        rez += parseInt(arr[i]) / n;
+        n *= 10;
+      }
+    } else if (point.length > 1) {
+      text.value = "null";
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        rez += parseInt(arr[i]);
+        if (i !== arr.length - 1) {
+          rez *= 10;
+        }
+      }
+    }
+
+    return rez;
+  }
+</script>
+</body>
+</html>

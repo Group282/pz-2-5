@@ -1,0 +1,33 @@
+/*Small devices (landscape phones, 425px and up)*/
+@media (min-width: 320px) {
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .virsta-calculator {
+    grid-template: "text text" 13vmin "help operations" 13vmin "number operations" 55vmin "save save" 15vmin
+  / 70% 30%;
+    width: 60vw;
+  }
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 1024px) {
+  .virsta-calculator {
+    width: 50vw;
+  }
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .virsta-calculator {
+    width: 30vw;
+  }
+}
+
+/*Extra large devices (large desktops, 2560px and up)*/
+@media (min-width: 2560px) {
+  input[type="button"] {
+    font: 200% normal;
+  }
+}
