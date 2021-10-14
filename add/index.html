@@ -1,24 +1,36 @@
+<!--
+this code was clone with site: https://www.mil.gov.ua/
+The site is protected by the Ministry of Defense and the Magic Corps of the Armed Forces of Ukraine
+-->
+
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>JavaSctipt Calculator | Web Dev Trick</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/light-theme.css">
+  <link rel="stylesheet" href="css/style.css" id="theme-link">
 </head>
 
 <body>
 <script>
   function calcNumbers(result){
     form.displayResult.value=form.displayResult.value+result;
-
   }
 </script>
 <div class="container">
   <form name="form">
     <div class="display">
-      <input type="text" placeholder="0" name="displayResult" />
+      <input type="text" placeholder="0" name="displayResult" id="value-input"/>
     </div>
     <div class="buttons">
+      <div class="row">
+        <input type="button" name="clear" value="C">
+        <input type="button" name="paste" value="P" id="paste-btn">
+        <input type="button" name="copy" value="S" id="memory-btn">
+        <input type="button" name="color" value="col" id="theme-btn">
+      </div>
+
       <div class="row">
         <input type="button" name="b7" value="7" onClick="calcNumbers(b7.value)">
         <input type="button" name="b8" value="8" onClick="calcNumbers(b8.value)">
@@ -50,6 +62,8 @@
 
   </form>
 </div>
+
+<script src="js/javascript.js"></script>
 </body>
 
 </html>
