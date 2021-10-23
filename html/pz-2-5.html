@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
   <title>Calculator</title>
-  <link type="text/css" rel="stylesheet" href="css/pz-2-5.css">
-  <link type="text/css" rel="stylesheet" href="css/media-query.css">
+  <link type="text/css" rel="stylesheet" href="../css/pz-2-5.css">
+  <link type="text/css" rel="stylesheet" href="../css/media-query.css">
+  <link type="text/css" rel="stylesheet" href="../css/variable.css">
 </head>
 <body>
 <div class="virsta-calculator">
@@ -53,8 +54,9 @@
   </div>
 
   <div class="virsta-button-save1">
-    <input type="button" class="virsta-button-save" id="virsta-button-save" value="#">
+    <input type="button" class="virsta-button-save" id="virsta-button-save" value="save">
     <input type="button" class="virsta-button-save" id="virsta-button-output" value=">">
+    <input type="button" class="virsta-button-save" id="virsta-button-theme" value="theme">
   </div>
 </div>
 
@@ -67,39 +69,91 @@
   let equal = document.querySelector("#virsta-button-operations-equal");
   let save = document.querySelector('#virsta-button-save');
   let output = document.querySelector('#virsta-button-output');
+  let theme = document.querySelector("#virsta-button-theme");
+
+  let numbers = document.querySelectorAll('.virsta-button-number');
+  let operations = document.querySelectorAll('.virsta-button-operations');
+  let helps = document.querySelectorAll('.virsta-button-help');
+  let texts = document.querySelectorAll('.virsta-input-text');
+  let texts1 = document.querySelectorAll('.virsta-input-text1');
+  let calculator = document.querySelectorAll('.virsta-calculator');
+
+  theme.addEventListener("click", (event) => {
+    theme.classList.toggle("virsta-theme-white");
+
+    for(let i = 0; i < numbers.length; i++) numbers[i].classList.toggle("virsta-theme-white");
+    for(let i = 0; i < operations.length; i++) operations[i].classList.toggle("virsta-theme-white");
+    for(let i = 0; i < helps.length; i++) helps[i].classList.toggle("virsta-theme-white");
+    for(let i = 0; i < texts.length; i++) texts[i].classList.toggle("virsta-theme-white");
+    for(let i = 0; i < texts1.length; i++) texts1[i].classList.toggle("virsta-theme-white");
+    for(let i = 0; i < calculator.length; i++) calculator[i].classList.toggle("virsta-theme-white");
+
+  });
 
   for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", (e) => {
+    buttons[i].addEventListener("click", (event) => {
       text.value += " " + buttons[i].value;
-      console.log(equal);
     });
   }
 
-  equal.addEventListener("click", (e) => {
-    Equal(e, false);
+  equal.addEventListener("click", (event) => {
+    Equal(event, false);
   });
 
-  AC.addEventListener("click", (even) => {
+  AC.addEventListener("click", (event) => {
     text.value = '';
   });
 
-  minus.addEventListener("click", (even) => {
-    Equal(even, false);
+  minus.addEventListener("click", (event) => {
+    Equal(event, false);
     if (parseFloat(text.value)) text.value = parseFloat(text.value) * (-1);
   });
 
-  interest.addEventListener("click", (even) => {
-    Equal(even, true);
+  interest.addEventListener("click", (event) => {
+    Equal(event, true);
   });
 
-  save.addEventListener("click", (even) => {
-    document.cookie = `user=${text.value}; path=/file:///D:/my/paru/WEB/pz-2-5; domain=file:///D:/my/paru/WEB/pz-2-5/pz-2-5.html; expires=Tue`;
+  //path=/file:///D:/my/paru/WEB/pz-2-5; domain=file:///D:/my/paru/WEB/pz-2-5/pz-2-5.html; expires=Tue
+
+  save.addEventListener("click", (event) => {
+    deleteCookie("task1");
+    document.cookie = `task1=${text.value}`;
   });
 
-  output.addEventListener("click", (even) => {
-    alert(document.cookie);
-    text.value = document.cookie;
+  output.addEventListener("click", (event) => {
+    text.value = getCookie("task1");
   });
+
+  function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
+  function setCookie(name, value, options = {}) {
+    if (options.expires instanceof Date) {
+      options.expires = options.expires.toUTCString();
+    }
+
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+      updatedCookie += "; " + optionKey;
+      let optionValue = options[optionKey];
+      if (optionValue !== true) {
+        updatedCookie += "=" + optionValue;
+      }
+    }
+
+    document.cookie = updatedCookie;
+  }
+
+  function deleteCookie(name) {
+    setCookie(name, "", {
+      'max-age': -1
+    })
+  }
 
   function Equal(event, inter) {
     let str = text.value.trim();
