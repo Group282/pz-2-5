@@ -6,6 +6,8 @@ const btn = document.getElementById('theme-btn');
 const link = document.getElementById('theme-link');
 const copyBtn = document.getElementById('memory-btn');
 const pasteBtn = document.getElementById('paste-btn');
+const clearBtn = document.getElementById('clear-btn');
+const minusBtn = document.getElementById('minus-btn');
 let value;
 
 function calcNumbers(result){
@@ -32,4 +34,12 @@ copyBtn.addEventListener('click', () =>{
 
 pasteBtn.addEventListener('click', () =>{
   form.displayResult.value += value;
+});
+
+clearBtn.addEventListener('click', () => {
+  form.displayResult.value = '';
+});
+
+minusBtn.addEventListener('click', () => {
+  form.displayResult.value = -form.displayResult.value;
 });
