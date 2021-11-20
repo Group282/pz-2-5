@@ -17,6 +17,7 @@ body {
   padding: 20px;
   position: relative;
   width: 563px;
+
 }
 
 .top-container {
@@ -77,6 +78,6 @@ body {
   filter: brightness(120%);
 }
 
-
-
-
+.container {
+  display: flex;
+}
