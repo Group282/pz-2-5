@@ -3,6 +3,15 @@ const calculator = document.querySelector('.calculator');
 const buttonFunction = document.querySelector('.button.function');
 
 function change () {
-  calculator.style.background = 'red';
-  buttonFunction.style.background = 'green';
+
+  console.log(calculator.style.background)
+
+  if (calculator.style.background === '' || calculator.style.background === 'black') {
+    calculator.style.background = 'red'
+    buttonFunction.style.background = 'green';
+  }
+  else {
+    calculator.style.background = 'black'
+    buttonFunction.style.background = '#a5a5a5';
+  }
 }
