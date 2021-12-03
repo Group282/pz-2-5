@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/scss/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top__panel">
+            <input id="text_insert" readonly type="text">
+            <input id="result" readonly type="text">
+        </div>
+        <div class="bottom__panel">
+            <div class="row">
+                <button class="first" onclick="clean()" id="clear"><p><b>C</b></p></button>
+                <button class="first" onclick="back()" id="back"><p><b>&larr;</b></p></button>
+                <button class="first" onclick="insert('%')" id="%"><p><b>%</b></p></button>
+                <button class="first_orange" onclick="insert('/')" id="/"><p><b>&divide;</b></p></button>
+            </div>
+            <div class="row">
+                <button class="first_black" onclick="insert('7')" id="7"><p><b>7</b></p></button>
+                <button class="first_black" onclick="insert('8')" id="8"><p><b>8</b></p></button>
+                <button class="first_black" onclick="insert('9')" id="9"><p><b>9</b></p></button>
+                <button class="first_orange" onclick="insert('*')" id="*"><p><b>&times;</b></p></button>
+            </div>
+            <div class="row">
+                <button class="first_black" onclick="insert('4')" id="4"><p><b>4</b></p></button>
+                <button class="first_black" onclick="insert('5')" id="5"><p><b>5</b></p></button>
+                <button class="first_black" onclick="insert('6')" id="6"><p><b>6</b></p></button>
+                <button class="first_orange" onclick="insert('-')" id="-"><p><b>-</b></p></button>
+            </div>
+            <div class="row">
+                <button class="first_black" onclick="insert('1')" id="1"><p><b>1</b></p></button>
+                <button class="first_black" onclick="insert('2')" id="2"><p><b>2</b></p></button>
+                <button class="first_black" onclick="insert('3')" id="3"><p><b>3</b></p></button>
+                <button class="first_orange" onclick="insert('+')" id="+"><p><b>+</b></p></button>
+            </div>
+            <div class="row">
+                <button class="first_zero" onclick="insert('0')" id="0"><p><b>0</b></p></button>
+                <button class="first_black" onclick="insert('.')" id="."><p><b>.</b></p></button>
+                <button class="first_orange" onclick="equal()" id="="><p><b>=</b></p></button>
+            </div>
+        </div>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
