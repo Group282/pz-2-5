@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  margin: 25px;
+}
+
+.calculator {
+  background: #000000;
+  color: #00d9ff;
+  height: 718px;
+  padding: 20px;
+  position: relative;
+  width: 475px;
+
+}
+
+.top-container {
+  display: flex;
+  height: 250px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.value {
+  font-size: 130px;
+  font-weight: 300;
+  height: 158px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  text-align: right;
+}
+
+.buttons-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.button {
+  align-items: center;
+  background: #595050;
+  border-radius: 40%;
+  cursor: pointer;
+  display: flex;
+  font-size: 45px;
+  height: 70px;
+  justify-content: center;
+  transition: filter .3s;
+  width: 70px;
+}
+
+.button.function {
+  color: black;
+  background: #252323;
+}
+
+.button.operator {
+  background: #e3155d;
+}
+
+.button.number-0 {
+  border-radius: 55px;
+  grid-column: 1 / span 2;
+  justify-content: flex-start;
+  padding-left: 43px;
+  width: 250px;
+}
+
+.button:active,
+.button:focus {
+  filter: brightness(120%);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-btn {
+  width: 230px;
+  height: 100px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  7px 7px 20px 0px rgba(37, 35, 35, 0.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-6 {
+  background: rgb(255, 0, 0);
+  background: radial-gradient(circle, rgb(255, 0, 0) 0%, rgba(118,174,241,1) 100%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-6 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-6:before,
+.btn-6:after {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 1px;
+  box-shadow:
+    -1px -1px 20px 0px rgba(255,255,255,1),
+    -4px -4px 5px 0px rgba(255,255,255,1),
+    7px 7px 20px 0px rgba(0,0,0,.4),
+    4px 4px 5px 0px rgba(0,0,0,.3);
+}
+.btn-6:before {
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+.btn-6:after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+}
+.btn-6:hover{
+  background: transparent;
+  color: #76aef1;
+  box-shadow: none;
+}
+.btn-6:hover:before {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.btn-6:hover:after {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.btn-6 span:before,
+.btn-6 span:after {
+  position: absolute;
+  content: "";
+  box-shadow:
+    -1px -1px 20px 0px rgba(255,255,255,1),
+    -4px -4px 5px 0px rgba(255,255,255,1),
+    7px 7px 20px 0px rgba(0,0,0,.4),
+    4px 4px 5px 0px rgba(0,0,0,.3);
+}
+.btn-6 span:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: .5px;
+  transition: all 500ms ease;
+}
+.btn-6 span:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: .5px;
+  transition: all 500ms ease;
+}
+.btn-6 span:hover:before {
+  width: 100%;
+}
+.btn-6 span:hover:after {
+  width: 100%;
+}
