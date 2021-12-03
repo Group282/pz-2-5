@@ -1,0 +1,36 @@
+body
+{
+ background-color: black;   
+}
+button
+{
+    border: 5px rgba(58, 55, 55, 0.431) solid;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    margin: 7px 7px 7px 7px;
+    background-color:rgba(58, 55, 55, 0.431);
+    font-size: 200%;
+    color:white;
+}
+label
+{
+    width: 500px;
+    height: 500px;
+    border: 5px rgb(0, 0, 0) solid;
+    background-color: black;
+    font-size: 300%;
+    color: white;
+}
+.first
+{
+    background-color:gray;
+    color: black;
+    border: 5px gray solid;
+}
+.second
+{
+    background-color:orange;
+    color: white;
+    border: 5px orange solid;
+}
