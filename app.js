@@ -112,6 +112,9 @@ btnDor.onclick=()=>{
     if (isStrContainMultiply) operation(display.innerText, '*')
     if (isStrContainDivision) operation(display.innerText, '/')
 };
+btnZM.onclick=()=>{
+    document.body.classList.toggle('backStyle');
+}
 function operation(foo,operator)
 {
    let text = foo.split(operator);
@@ -143,4 +146,3 @@ function hasOperation(){
     display.innerText.includes('/') ||
     display.innerText.includes('%');
 }
-
