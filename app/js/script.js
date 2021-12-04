@@ -174,6 +174,19 @@ function  variable_change(buttons_array,color){
 }
 
 
+function Save(){
+
+
+  localStorage.setItem("Save", valueEl.textContent);
+
+  alert(localStorage.getItem("Save"))
+}
+
+function Load(){
+
+  valueEl.textContent = localStorage.getItem("Save")
+}
+
 
 function change () {
 
