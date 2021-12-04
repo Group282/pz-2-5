@@ -16,9 +16,21 @@ const btnMul = document.getElementById('/');
 const btnDot = document.getElementById('.');
 const btnDor = document.getElementById('=');
 const btnProc = document.getElementById('%');
-// const _hz = document.getElementById('hz');
+const btnSV = document.getElementById('SV');
 const btnZM = document.getElementById('ZM');
+const btnPH = document.getElementById('PH');
 const display = document.getElementById('display');
+btnPH.onclick=()=>{
+    let numb = localStorage.getItem('number');
+    display.innerText = numb;
+    console.log(save)
+}
+btnSV.onclick=()=>{
+    let save = display.innerText;
+    console.log(save)
+    localStorage.setItem("number",save);
+    save=parseInt(localStorage.getItem("number"))
+}
 
 btn1.onclick=()=>{
     display.innerText+='1'
