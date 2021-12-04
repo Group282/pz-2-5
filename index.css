@@ -1,0 +1,92 @@
+.calculate{
+    margin: 50px  ;
+    width: 350px;
+    height: 500px;
+    border-radius: 15px;
+    background: #000;
+    color: #fff;
+    font-family: Arial;
+    padding: 18px;
+    box-shadow: 4px 4px 4px #4f4f4f;
+}
+
+.calcalculate-screen{
+    height: 125px;
+    padding: 10px;
+    text-align: right;
+    /* display: flex; */
+    justify-items: end;
+    align-items: end;
+    margin-bottom: 20px;
+}
+.calcalculate-screen p{
+    margin-top: 40px;
+    text-align: right;
+    font-size: 50px;
+}
+
+.buttons{
+    display: grid;
+    /* flex-wrap: wrap; */
+    grid-template-areas:
+    "ac plus-minus percent division"
+    "seven eight nine multiply"
+    "four five six minus"
+    "one two three plus"
+    "zero zero dot equal";
+    grid-gap: 10px;
+    justify-items: center;
+  }
+  .btn{
+      width: 50px;
+      height: 50px;
+      background:rgb(37, 37, 37);
+      text-align: center;
+      padding-top: 3px;
+      border-radius: 100%;
+      font-size: 30px;
+      cursor: pointer;
+  }
+  .btn.bg-grey{
+    background: #797777;
+  }
+  .btn.bg-orange{
+    background: #f36e00;
+  }
+
+
+  .btn.zero{
+    grid-area: zero;
+    width: 80%;
+    border-radius: 35px;
+  }
+  .btn:hover{
+    filter: brightness(150%);
+    filter: drop-shadow(16px 16px 20px rgb(160, 160, 163));
+  }
+  .btn:active{
+    filter: brightness(100%);
+    filter: drop-shadow(50%);
+  }
+
+
+/* 
+  filter: url(resources.svg);
+filter: blur(5px);
+filter: brightness(0.4);
+filter: contrast(200%);
+filter: drop-shadow(16px 16px 20px blue);
+filter: grayscale(50%);
+filter: hue-rotate(90deg);
+filter: invert(75%);
+filter: opacity(25%);
+filter: saturate(30%);
+filter: sepia(60%);
+
+/* Применение нескольких фильтров */
+/* filter: contrast(175%) brightness(3%); */
+
+/* Глобальные значения */
+/* filter: inherit;
+filter: initial;
+filter: unset; */
